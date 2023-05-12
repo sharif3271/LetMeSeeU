@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+  server:
+    container_name: server
+    restart: always
+    build:
+      context: ./server
+      tags:
+        - "connection-broker:latest"
+    ports:
+      - "6090:6090"
+    networks:
+      lite_messenger_net:
+        ipv4_address: 192.168.18.13
+  ui:
+    container_name: ui
+    restart: always
+    build:
+      context: ./ui
+      target: ui-webserver
+      tags:
+        - "letMSU-ui:latest"
+    ports:
+      - "6091:80"
+    networks:
+      lite_messenger_net:
+        ipv4_address: 192.168.18.14
+networks:
+  let_me_see_you_net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.18.0/24
