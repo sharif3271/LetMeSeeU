@@ -1,0 +1,4 @@
+
+export const ACTION_TYPES = {
+  SAMPLE_TYPE: '[ACTION_TYPE] SAMPLE_TYPE',
+};

@@ -1,0 +1,12 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import '../../components/index.css';
+
+
+@layer components {
+}
+
+:root {
+    --app-max-width: 1134px;
+}

@@ -1,0 +1,22 @@
+.header-menu-items-container {
+    @apply hidden md:flex flex-1 justify-start items-center z-10;
+    &.show {
+        @apply flex fixed inset-0 bg-white flex-col justify-center;
+    }
+}
+.header-menu-item {
+    @apply text-lg my-2 lg:my-0 lg:text-xl mx-2 text-gray2 transition-all relative;
+    &.active {
+        @apply text-primary-dark;
+    }
+    &:before {
+        @apply w-0 h-0.5 absolute right-0 -bottom-2 bg-primary;
+        content: '';
+        transition: all 0.3s ease 0s;
+    }
+    &:hover {
+        &:before {
+            @apply w-full left-0;
+        }
+    }
+}
