@@ -1,12 +1,14 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
-import { HeaderMenu } from 'src/components';
+import { useNavigate } from 'react-router';
+import { RouterContainer } from 'src/components';
 
 export function Home() {
-    return (
-        <div className={'min-h-screen flex flex-col items-center'}>
-            <HeaderMenu />
-            <Outlet />
-        </div>
-    );
+  const nav = useNavigate();
+  return (
+    <RouterContainer>
+      <div className={'h-full w-full bg-red-500'}>
+        <button onClick={() => nav('nkvjsdbf')}>another</button>
+      </div>
+    </RouterContainer>
+  );
 }

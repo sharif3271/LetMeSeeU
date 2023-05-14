@@ -1,6 +1,8 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap");
 @import '../../components/index.css';
 
 
@@ -8,5 +10,21 @@
 }
 
 :root {
-    --app-max-width: 1134px;
+  --app-max-width: 768px;
+}
+
+body {
+  overscroll-behavior-y: contain;
+}
+
+.page-container {
+  @apply w-[100vw] h-[100vh] flex flex-col items-center content-start;
+}
+
+* {
+  user-select: none;
+  font-family: "Rajdhani", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }

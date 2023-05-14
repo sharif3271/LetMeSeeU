@@ -9,7 +9,7 @@ export function Root() {
   return (
     <BrowserRouter>
       <Provider store={store}>
-          <AppRoutes />
+        <AppRoutes />
       </Provider>
     </BrowserRouter>
   );
