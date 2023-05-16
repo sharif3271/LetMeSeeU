@@ -16,15 +16,14 @@
 body {
   overscroll-behavior-y: contain;
 }
-
-.page-container {
-  @apply w-[100vw] h-[100vh] flex flex-col items-center content-start;
-}
-
 * {
   user-select: none;
   font-family: "Rajdhani", sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.page-container {
+  @apply w-[100vw] max-w-app h-[100vh] flex flex-col items-center content-start mx-auto;
 }
