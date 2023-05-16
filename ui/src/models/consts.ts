@@ -1,1 +1,2 @@
 export const TOKEN_KEY = '52A8308937AE';
+export const GREETING_DONE_KEY = '52A9308237AE';
