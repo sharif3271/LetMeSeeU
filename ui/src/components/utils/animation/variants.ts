@@ -3,7 +3,11 @@ import { Variant } from 'framer-motion';
 export const RoutingAnimation: Record<string, Variant> = {
   initial: {
     x: '90vw',
-    opacity: 0.3
+    opacity: 0.3,
+    transition: {
+      when: 'beforeChildren',
+      staggerChildren: 0.4
+    }
   },
   final: {
     x: '0vw',

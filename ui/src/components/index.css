@@ -1,4 +1,7 @@
 
 .fill {
-  @apply w-full h-full;
+  @apply w-full h-full p-4;
+}
+.flex-col-start {
+  @apply flex justify-start items-center flex-col;
 }
