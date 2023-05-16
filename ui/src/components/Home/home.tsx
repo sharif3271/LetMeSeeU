@@ -6,7 +6,7 @@ export function Home() {
   const nav = useNavigate();
   return (
     <RouterContainer>
-      <div className={'h-full w-full bg-red-500'}>
+      <div className={'fill bg-red-500'}>
         <button onClick={() => nav('nkvjsdbf')}>another</button>
       </div>
     </RouterContainer>

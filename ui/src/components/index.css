@@ -1,4 +1,4 @@
 
-.xyz {
-  color: aliceblue;
+.fill {
+  @apply w-full h-full;
 }
