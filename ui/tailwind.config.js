@@ -24,6 +24,9 @@ module.exports = {
         ultraLight: '0 1px 5px 0 rgb(0 0 0 / 5%)',
         focus: '0 0 0 2.5px #ff999a'
       },
+      maxWidth: {
+        'app': '768px',
+      }
     },
   },
 };
