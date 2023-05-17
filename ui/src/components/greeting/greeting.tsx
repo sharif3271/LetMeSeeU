@@ -81,21 +81,21 @@ function GreetingMan() {
       <path
         d='M25.2024 120.48C26.3603 132.708 31.2377 172.662 45.7566 182.276C63.0423 193.722 93.9928 162.167 93.9928 162.167L109.276 180.976C109.276 180.976 52.916 250.53 14.2949 200.957C-2.074 179.942 0.142397 116.043 0.142397 116.043C0.142397 116.043 0.861003 112.662 7.67547 108.356C10.5335 106.548 17.465 106.146 19.6588 105.87C26.4004 105.025 24.9457 117.78 25.2024 120.48Z'
         fill='url(#paint10_linear_1_67)' />
-      <path d='M154.554 143.362L132.859 152.284M154.924 145.585L134.929 156.181' stroke='#77493E' stroke-width='0.5'
-        stroke-linecap='round' />
-      <ellipse cx='114.5' cy='122' rx='2.5' ry='3' transform='rotate(30 114.5 122)' fill='#2C2727' fill-opacity='0.57' />
+      <path d='M154.554 143.362L132.859 152.284M154.924 145.585L134.929 156.181' stroke='#77493E' strokeWidth='0.5'
+        strokeLinecap='round' />
+      <ellipse cx='114.5' cy='122' rx='2.5' ry='3' transform='rotate(30 114.5 122)' fill='#2C2727' fillOpacity='0.57' />
       <ellipse cx='114.549' cy='161.75' rx='0.933013' ry='1.48205' transform='rotate(30 114.549 161.75)' fill='#2C2727'
-        fill-opacity='0.57' />
+        fillOpacity='0.57' />
       <defs>
         <linearGradient id='paint9_linear_1_67' x1='40.0047' y1='151.508' x2='53.0531' y2='263.791'
           gradientUnits='userSpaceOnUse'>
-          <stop stop-color='#1CA86D' />
-          <stop offset='1' stop-color='#81E0C1' />
+          <stop stopColor='#1CA86D' />
+          <stop offset='1' stopColor='#81E0C1' />
         </linearGradient>
         <linearGradient id='paint10_linear_1_67' x1='9.98221' y1='116.448' x2='63.4982' y2='218.739'
           gradientUnits='userSpaceOnUse'>
-          <stop offset='0.17403' stop-color='#1CA86A' />
-          <stop offset='1' stop-color='#81E0C1' />
+          <stop offset='0.17403' stopColor='#1CA86A' />
+          <stop offset='1' stopColor='#81E0C1' />
         </linearGradient>
       </defs>
     </svg>
@@ -134,8 +134,8 @@ function GreetingWoman() {
       <path
         d='M229.231 170.238C229.231 170.238 258.899 201.172 268.622 172.613C278.345 144.054 285.283 104.408 285.283 104.408L289.925 96.7181C289.925 96.7181 304.677 101.041 305.549 124.574C306.422 148.107 291.712 221.473 266.561 220.306C241.409 219.138 234.634 211.081 212.509 191.141C229.078 169.9 229.231 170.238 229.231 170.238Z'
         fill='url(#paint6_linear_1_67)' />
-      <path d='M165.559 161.133L193.164 160.12M166.335 163.668L191.869 165.218' stroke='#B47E6D' stroke-width='0.5'
-        stroke-linecap='round' />
+      <path d='M165.559 161.133L193.164 160.12M166.335 163.668L191.869 165.218' stroke='#B47E6D' strokeWidth='0.5'
+        strokeLinecap='round' />
       <path
         d='M270.78 62.382C271.154 63.8818 270.909 65.4705 270.1 66.7988C269.291 68.127 267.983 69.086 266.464 69.4646C263.301 70.2532 262.525 72.4034 260.017 67.7447C257.509 63.0859 260.482 58.9431 263.644 58.1546C265.163 57.7759 266.768 58.0086 268.106 58.8014C269.444 59.5942 270.406 60.8822 270.78 62.382Z'
         fill='#FFBFA1' />
@@ -148,7 +148,7 @@ function GreetingWoman() {
         d='M79 176C79 176 43.2953 175.881 37.5995 180.988C36.1879 182.253 49.774 181.333 50.324 182.59C50.8739 183.847 51.3408 182.48 32.266 206.951C28.4706 211.82 26.5614 217.506 33.0182 215.084C36.1507 213.913 43.4233 208.477 50.9881 203.103C72.1691 188.041 106 180.5 106 180.5L79 176Z'
         fill='#FFBFA1' />
       <rect x='166.942' y='136.313' width='10.2099' height='10.0396' rx='2' transform='rotate(-15 166.942 136.313)'
-        fill='#07051A' fill-opacity='0.9' />
+        fill='#07051A' fillOpacity='0.9' />
       <path
         d='M276.095 47.9891C276.095 47.9891 273.612 53.1964 270.045 55.6616C266.478 58.1269 262.355 55.5498 262.355 55.5498C262.355 55.5498 260.3 59.3023 255.404 58.3519C253.351 57.9371 251.337 56.9075 249.801 55.4872C248.265 54.0669 247.33 52.3709 247.201 50.7684C243.058 50.0389 237.687 47.1403 238.663 40.5967C239.638 34.0531 246.06 23.8276 253.5 19.5001C260.94 15.1726 276.095 47.9891 276.095 47.9891Z'
         fill='url(#paint7_linear_1_67)' />
@@ -158,48 +158,48 @@ function GreetingWoman() {
       <defs>
         <linearGradient id='paint0_linear_1_67' x1='111.925' y1='248.109' x2='177.628' y2='289.164'
           gradientUnits='userSpaceOnUse'>
-          <stop stop-color='#7A2D4C' />
-          <stop offset='1' stop-color='#3D1726' />
+          <stop stopColor='#7A2D4C' />
+          <stop offset='1' stopColor='#3D1726' />
         </linearGradient>
         <linearGradient id='paint1_linear_1_67' x1='106.925' y1='230.109' x2='172.628' y2='271.164'
           gradientUnits='userSpaceOnUse'>
-          <stop stop-color='#7A2D4C' />
-          <stop offset='1' stop-color='#3D1726' />
+          <stop stopColor='#7A2D4C' />
+          <stop offset='1' stopColor='#3D1726' />
         </linearGradient>
         <linearGradient id='paint2_linear_1_67' x1='403.149' y1='-78.0188' x2='346.488' y2='-130.856'
           gradientUnits='userSpaceOnUse'>
-          <stop stop-color='#7A2D4C' />
-          <stop offset='1' stop-color='#3D1726' />
+          <stop stopColor='#7A2D4C' />
+          <stop offset='1' stopColor='#3D1726' />
         </linearGradient>
         <linearGradient id='paint3_linear_1_67' x1='271.198' y1='-158.8' x2='193.913' y2='-164.204'
           gradientUnits='userSpaceOnUse'>
-          <stop stop-color='#7A2D4C' />
-          <stop offset='1' stop-color='#3D1726' />
+          <stop stopColor='#7A2D4C' />
+          <stop offset='1' stopColor='#3D1726' />
         </linearGradient>
         <linearGradient id='paint4_linear_1_67' x1='32.9253' y1='30.9009' x2='32.9253' y2='108.375'
           gradientUnits='userSpaceOnUse'>
-          <stop stop-color='#7A2D4C' />
-          <stop offset='1' stop-color='#3D1726' />
+          <stop stopColor='#7A2D4C' />
+          <stop offset='1' stopColor='#3D1726' />
         </linearGradient>
         <linearGradient id='paint5_linear_1_67' x1='226.11' y1='134.733' x2='251.119' y2='397.445'
           gradientUnits='userSpaceOnUse'>
-          <stop stop-color='#0069D1' />
-          <stop offset='1' stop-color='#003569' />
+          <stop stopColor='#0069D1' />
+          <stop offset='1' stopColor='#003569' />
         </linearGradient>
         <linearGradient id='paint6_linear_1_67' x1='278.222' y1='116.247' x2='211.163' y2='165.943'
           gradientUnits='userSpaceOnUse'>
-          <stop stop-color='#0069D1' />
-          <stop offset='1' stop-color='#1879D9' />
+          <stop stopColor='#0069D1' />
+          <stop offset='1' stopColor='#1879D9' />
         </linearGradient>
         <linearGradient id='paint7_linear_1_67' x1='392.521' y1='113.021' x2='410.31' y2='78.1087'
           gradientUnits='userSpaceOnUse'>
-          <stop stop-color='#7A2D4C' />
-          <stop offset='1' stop-color='#3D1726' />
+          <stop stopColor='#7A2D4C' />
+          <stop offset='1' stopColor='#3D1726' />
         </linearGradient>
         <linearGradient id='paint8_linear_1_67' x1='334.448' y1='77.4138' x2='351.731' y2='43.4926'
           gradientUnits='userSpaceOnUse'>
-          <stop stop-color='#7A2D4C' />
-          <stop offset='1' stop-color='#3D1726' />
+          <stop stopColor='#7A2D4C' />
+          <stop offset='1' stopColor='#3D1726' />
         </linearGradient>
       </defs>
     </svg>
