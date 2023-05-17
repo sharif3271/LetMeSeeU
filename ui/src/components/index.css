@@ -1,7 +1,40 @@
 
 .fill {
-  @apply w-full h-full p-4;
+  @apply w-full h-full p-4 bg-transparent overflow-hidden;
 }
 .flex-col-start {
   @apply flex justify-start items-center flex-col;
+}
+
+
+
+/* Greeting Page */
+.greeting-hero {
+  @apply flex w-10/12 sm:w-4/12 mt-8;
+}
+.greeting-hero .item {
+  @apply min-w-full h-full;
+}
+.greeting-hero svg {
+  @apply w-full h-full;
+}
+.greeting-title {
+  @apply mt-6 flex items-center justify-center sm:mt-10 w-full whitespace-nowrap app-title-font text-center font-bold sm:font-medium;
+}
+
+/* UserEntry page */
+.entry-type-container {
+  @apply w-full h-full py-8 sm:mt-10 px-4 sm:px-6 md:px-8 lg:px-10 lg:my-0 lg:pt-0;
+}
+.entry-title {
+  @apply app-title-font w-full text-center mb-6;
+}
+.entry-subtitle {
+  @apply app-subtitle-font w-full text-center mb-0 mt-10;
+}
+.entry-type-container > label, .entry-type-container > button {
+  @apply w-full sm:w-10/12 md:w-8/12 lg:w-6/12 mx-auto mb-6;
+}
+.entry-type-container > button {
+  display: inherit;
 }
