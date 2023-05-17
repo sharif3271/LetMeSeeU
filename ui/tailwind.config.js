@@ -26,6 +26,9 @@ module.exports = {
       },
       maxWidth: {
         'app': '768px',
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       }
     },
   },
