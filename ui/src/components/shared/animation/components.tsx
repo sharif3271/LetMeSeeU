@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { RoutingAnimation } from 'src/components/utils';
+import { RoutingAnimation } from 'appRoot/src/components/shared';
 
 export function RouterContainer({children}) {
   return (
