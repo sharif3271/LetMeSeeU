@@ -14,7 +14,7 @@ import 'dotenv/config';
             secret: process.env.SECRETKEY,
             signOptions: {
                 expiresIn: process.env.EXPIRESIN,
-                issuer: 'YYJOBS_CHAT_APP',
+                issuer: 'LetMeSeeYou',
             },
         })
     ],
