@@ -11,6 +11,6 @@ export class UserRepository {
     return this._client;
   }
   get users() {
-    return this._client.users;
+    return this._client.user;
   }
 }
