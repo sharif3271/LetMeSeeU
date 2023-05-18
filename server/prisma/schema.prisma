@@ -1,0 +1,46 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         String       @id @default(cuid())
+  name       String       @unique
+  password   String
+  avatar     String?
+  followings Connection[] @relation("User-Followings") // connections requested By user
+  followers  Connection[] @relation("User-Followers") // connections requested To user
+  createAt   DateTime     @default(now())
+
+  @@index([name])
+}
+
+model Connection {
+  id            String   @id @default(cuid())
+  requestedById String
+  requestedToId String
+  requestedBy   User     @relation("User-Followings", fields: [requestedById], references: [id])
+  requestedTo   User     @relation("User-Followers", fields: [requestedToId], references: [id])
+  connected     Boolean  @default(false)
+  createAt      DateTime @default(now())
+
+  @@index([requestedById, requestedToId])
+}
+
+model Message {
+  id            Int      @id @default(autoincrement())
+  senderId      String
+  reciverId     String
+  connectionId  String
+  text          String?
+  fileId        String?
+  fileExtension String?
+  isSeen        Boolean  @default(false)
+  sentAt        DateTime @default(now())
+
+  @@index([connectionId])
+}
