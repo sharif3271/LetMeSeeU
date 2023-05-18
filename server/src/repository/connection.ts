@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { PrismaClient } from '@prisma/client';
 
 @Injectable()
-export class UserRepository {
+export class ConnectionRepository {
   private readonly _client: PrismaClient;
   constructor() {
     this._client = new PrismaClient();
@@ -10,7 +10,7 @@ export class UserRepository {
   get prismaClient() {
     return this._client;
   }
-  get user() {
+  get connection() {
     return this._client.user;
   }
 }
