@@ -1,1 +1,1 @@
-export * from './IProfiles';
+export * from './user.interface';
