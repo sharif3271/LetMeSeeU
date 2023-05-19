@@ -1,3 +1,4 @@
 export const MAIN_URLS = {
-  test: '/test',
+  login: '/user/login',
+  register: '/user/register',
 };

@@ -22,10 +22,10 @@ export class HttpClient {
       headers,
     });
   }
-  public get(url: string, config: AxiosRequestConfig = {}) {
-    return this.http.get(url, config);
+  public get<T = unknown>(url: string, config: AxiosRequestConfig = {}) {
+    return this.http.get<T>(url, config);
   }
-  public post(url: string, data: any = {}, config: AxiosRequestConfig = {}) {
-    return this.http.post(url, data, config);
+  public post<T = unknown>(url: string, data: any = {}, config: AxiosRequestConfig = {}) {
+    return this.http.post<T>(url, data, config);
   }
 }
