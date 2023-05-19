@@ -1,4 +1,5 @@
 import axios, { AxiosRequestConfig, AxiosInstance } from 'axios';
+import { TOKEN_KEY } from 'src/models/consts';
 
 export class HttpClient {
   private readonly http: AxiosInstance;
@@ -8,7 +9,7 @@ export class HttpClient {
     return this.http;
   }
   public constructor(timeout?: number) {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem(TOKEN_KEY);
     const headers = {
       'Accept': 'application/json',
       'Content-Type': 'application/json;charset=UTF-8',
