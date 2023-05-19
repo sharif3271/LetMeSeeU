@@ -1,2 +1,2 @@
-export * from './routes.model';
-export * from './main.model';
+export * from './app.routes';
+export * from './redux.store';
