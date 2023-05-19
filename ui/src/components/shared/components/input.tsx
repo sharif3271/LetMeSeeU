@@ -1,23 +1,31 @@
-import React from 'react';
+import React, { InputHTMLAttributes, useCallback, useState } from 'react';
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 
-interface IAppInputProps {
+interface IAppInputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
+  showPassDefault?: boolean;
 }
 
-export function AppInput(
-  { label, className, ...props }: IAppInputProps & React.HTMLAttributes<HTMLInputElement>
-) {
+export function AppInput({ showPassDefault = false, label, className, ...props }: IAppInputProps) {
+  const [isShow, setIsShow] = useState(!!showPassDefault);
+  const togglePassword = useCallback(() => setIsShow(!isShow), [isShow, setIsShow]);
   return (
-    <label className='flex flex-col'>
-      <p className='opacity-90'>{label}</p>
+    <label className='input-label-container'>
+      <p className='input-label'>{label}</p>
       <input
-        className={`
-        bg-transparent border-b-2 border-slate-400
-        px-0 py-2 text-base focus:outline-none
-        ${className || ''}
-      `}
-        {...props}
+        className={`app-input ${className || ''}`}
+        {...{
+          ...props,
+          type: (props.type !== 'password' ? props.type : (isShow ? 'text' : 'password')),
+        }}
       />
+      {
+        props.type === 'password' && (
+          isShow
+          ? <AiOutlineEye className='input-password-eye' onClick={togglePassword} />
+          : <AiOutlineEyeInvisible className='input-password-eye' onClick={togglePassword} />
+        )
+      }
     </label>
   );
 }
