@@ -6,15 +6,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'primary': '#f54e50',
-        'primary-light1': '#ff999a',
-        'primary-light2': '#ffe9e9',
-        'primary-dark': '#d63335',
-        'gray1': '#1e1e1f',
-        'gray2': '#414244',
-        'gray3': '#8b9199',
-        'gray5': '#dde2eb',
-        'gray6': '#f5f8fc',
+        'primary': '#1859F9',
+        'font-color': '#1F1930',
+        'input-active': '#5F5950'
       },
       borderWidth: {
         0.5: '1px'
