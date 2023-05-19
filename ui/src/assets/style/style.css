@@ -2,6 +2,7 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 @import '../../components/index.css';
+@import '../../components/shared/components/components.css';
 
 
 @layer components {
@@ -45,7 +46,13 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: #1F1930;
+  @apply text-font-color;
+}
+
+/* Fucking chrome autofill*/
+input:-webkit-autofill { 
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 .page-container {

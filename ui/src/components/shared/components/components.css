@@ -1,0 +1,25 @@
+
+/* AppInput */
+.input-label-container {
+  @apply flex flex-col relative;
+}
+.input-password-eye {
+  @apply absolute right-0 bottom-4 cursor-pointer;
+}
+.input-label {
+  @apply opacity-90;
+}
+.app-input {
+  @apply bg-transparent border-b-2 border-slate-400
+  px-0 py-2 text-base focus:outline-none focus:border-input-active
+  transition-colors duration-300
+}
+
+/* AppButton */
+.app-button {
+  @apply bg-gradient-to-r from-[#1859F9] to-[#1879D9]
+  p-4 py-3 text-xl text-slate-50 rounded-lg
+  hover:to-0% active:to-100% active:from-100%
+  disabled:opacity-50 disabled:pointer-events-none
+  [&>div:first-child]:text-slate-50 hover:[&>div:first-child]:scale-110 [&>div:first-child]:transition-transform
+}
