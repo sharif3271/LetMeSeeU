@@ -11,8 +11,8 @@ services:
     ports:
       - "6090:6090"
     networks:
-      lite_messenger_net:
-        ipv4_address: 192.168.18.13
+      let_me_see_you_net:
+        ipv4_address: 192.168.19.13
   ui:
     container_name: ui
     restart: always
@@ -24,12 +24,29 @@ services:
     ports:
       - "6091:80"
     networks:
-      lite_messenger_net:
-        ipv4_address: 192.168.18.14
+      let_me_see_you_net:
+        ipv4_address: 192.168.19.14
+  object-storage:
+    image: quay.io/minio/minio
+    container_name: object-storage
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: minio
+      MINIO_ROOT_PASSWORD: minio@MINIO
+    volumes:
+      - ./minio/data:/data
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 9000:9000
+      - 9001:9001
+    networks:
+      let_me_see_you_net:
+        ipv4_address: 192.168.19.15
+
 networks:
   let_me_see_you_net:
     driver: bridge
     ipam:
       driver: default
       config:
-        - subnet: 192.168.18.0/24
+        - subnet: 192.168.19.0/24
