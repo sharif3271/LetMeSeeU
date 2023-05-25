@@ -1,14 +1,24 @@
 import { ACTION_TYPES } from 'src/store/types';
 import { IMainStore } from 'src/models';
+import { toggleLoading, updateProfile } from 'src/store/stores/main/action';
 
 const initialState: IMainStore = {
+  profile: null,
 };
 
 export const MainStore = (state = initialState, action: any): IMainStore => {
   switch (action.type) {
-    case ACTION_TYPES.SAMPLE_TYPE:
+    case ACTION_TYPES.UPDATE_PROFILE:
+      const user = (action as ReturnType<typeof updateProfile>).payload;
       return {
         ...state,
+        profile: user
+      };
+    case ACTION_TYPES.TOGGLE_LOADING:
+      const loadingType = (action as ReturnType<typeof toggleLoading>).payload;
+      return {
+        ...state,
+        [loadingType]: !state[loadingType]
       };
     default:
       return state;
