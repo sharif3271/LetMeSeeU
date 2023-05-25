@@ -29,4 +29,5 @@ export class MainFacade {
       })
       .finally(() => this.toggleLoading(AppLoadings.profileLoading));
   }
+  setProfileAvatar(file: File) {}
 }
