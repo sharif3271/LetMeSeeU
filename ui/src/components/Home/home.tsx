@@ -1,13 +1,11 @@
 import React, { useMemo } from 'react';
-import { Outlet, useLocation, useNavigate } from 'react-router';
+import { Outlet, useLocation } from 'react-router';
 import { RouterContainer } from 'src/components';
 import { isInConnectionPath } from 'src/models';
 
 export function Home() {
 
-  const nav = useNavigate();
   const {pathname} = useLocation();
-
   const isInConnection = useMemo(() => isInConnectionPath(pathname), [pathname]);
 
   return (
@@ -21,7 +19,3 @@ export function Home() {
     </RouterContainer>
   );
 }
-
-/* <div className={'fill bg-red-500 hidden'}>
-<button onClick={() => nav('nkvjsdbf')}>another</button>
-</div> */
