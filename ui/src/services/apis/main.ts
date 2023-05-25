@@ -20,4 +20,7 @@ export class MainServices {
       password
     });
   }
+  async profile() {
+    return this.http.get<IResponse<IUser>>(MAIN_URLS.profile);
+  }
 }
