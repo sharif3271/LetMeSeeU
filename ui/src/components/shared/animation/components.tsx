@@ -8,6 +8,7 @@ export function RouterContainer({children}) {
       variants={RoutingAnimation}
       initial={'initial'}
       animate={'final'}
+      exit={'exit'}
       className='page-container'
     >
       {children}

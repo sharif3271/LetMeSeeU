@@ -17,6 +17,14 @@ export const RoutingAnimation: Record<string, Variant> = {
       duration: 0.4
     }
   },
+  exit: {
+    x: '-100vw',
+    opacity: 0,
+    transition: {
+      ease: 'easeOut',
+      duration: 0.3
+    }
+  }
 };
 
 export const GText: Record<string, Variant> = {
