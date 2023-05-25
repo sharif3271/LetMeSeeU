@@ -2,7 +2,7 @@ import { HttpException, HttpStatus, Injectable } from "@nestjs/common";
 import { IAuthUser, ILoginBody, IRegisterBody } from "src/interfaces";
 import { UserRepository } from "src/repository";
 import { JwtService } from '@nestjs/jwt';
-import { ErrorMessages, IResponse, PassUtils, Successful } from "src/utils";
+import { ErrorMessages, PassUtils, Successful } from "src/utils";
 import { User } from "@prisma/client";
 
 @Injectable()
@@ -45,5 +45,17 @@ export class UsersService {
       .catch(() => {
         throw new HttpException(ErrorMessages.user.ALREADY_EXISTS, HttpStatus.FORBIDDEN);
       })
+  }
+  async profile(userId: string) {
+    const user = await this.repository.user.findUnique({where: {id: userId}});
+    if (user) {
+      return new Successful({data: {
+        avatar: user.avatar,
+        name: user.name,
+        id: user.id
+      } as Partial<User>});
+    } else {
+      throw new HttpException(ErrorMessages.user.GET_PROFILE_FAILD, HttpStatus.FORBIDDEN);
+    }
   }
 }

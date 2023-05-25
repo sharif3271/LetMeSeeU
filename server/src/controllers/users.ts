@@ -1,5 +1,5 @@
 import { Controller, Body, Request, Post, Get, UseGuards } from '@nestjs/common';
-import { ILoginBody, IRegisterBody } from 'src/interfaces';
+import { ILoginBody, IProtectedReq, IRegisterBody } from 'src/interfaces';
 import { AuthGuard } from 'src/modules/auth';
 import { UsersService } from 'src/services';
 
@@ -17,8 +17,8 @@ export class UserController {
   }
   
   @UseGuards(AuthGuard)
-  @Get('whoami')
-  async getMyInfo(@Request() req: unknown) {
-    return (req as any).user;
+  @Get('profile')
+  async getMyInfo(@Request() req: IProtectedReq) {
+    return this.userService.profile(req.user.id);
   }
 }
