@@ -38,3 +38,21 @@
 .entry-type-container > button {
   display: inherit;
 }
+
+/* Home page */
+.home-container {
+  @apply flex w-full h-full;
+}
+.home-list {
+  @apply bg-slate-600 min-h-screen w-full md:w-[300px];
+}
+.home-connection {
+  @apply flex-1;
+}
+
+.home-container.connection {
+  @apply [&>*:first-child]:hidden md:[&>*:first-child]:flex;
+}
+.home-container.home {
+  @apply [&>*:last-child]:hidden md:[&>*:last-child]:flex;
+}
