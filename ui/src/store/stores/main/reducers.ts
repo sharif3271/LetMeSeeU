@@ -1,6 +1,7 @@
 import { ACTION_TYPES } from 'src/store/types';
 import { IMainStore } from 'src/models';
 import { toggleLoading, updateProfile } from 'src/store/stores/main/action';
+import { IUser } from 'appRoot/src/models/side-effects';
 
 const initialState: IMainStore = {
   profile: null,
@@ -12,7 +13,7 @@ export const MainStore = (state = initialState, action: any): IMainStore => {
       const user = (action as ReturnType<typeof updateProfile>).payload;
       return {
         ...state,
-        profile: user
+        profile: user !== null ? {...(state.profile ? state.profile : {}), ...user} as IUser : null
       };
     case ACTION_TYPES.TOGGLE_LOADING:
       const loadingType = (action as ReturnType<typeof toggleLoading>).payload;
