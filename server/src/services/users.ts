@@ -26,7 +26,7 @@ export class UsersService {
     }
     const user = await this.repository.user.findUnique({ where: { name: body.name } });
     if (user && PassUtils.verify(user.password, body.password)) {
-      return new Successful({ data: this.generateToken({ id: user.id, name: user.name, })})
+      return new Successful({ data: this.generateToken({ id: user.id, name: user.name, }) })
     } else {
       throw new HttpException(ErrorMessages.user.LOGIN_INVALID, HttpStatus.FORBIDDEN);
     }
@@ -52,26 +52,33 @@ export class UsersService {
       })
   }
   async profile(userId: string) {
-    const user = await this.repository.user.findUnique({where: {id: userId}});
+    const user = await this.repository.user.findUnique({ where: { id: userId } });
     if (user) {
-      return new Successful({data: {
-        avatar: user.avatar,
-        name: user.name,
-        id: user.id
-      } as Omit<User, 'password'>});
+      return new Successful({
+        data: {
+          avatar: user.avatar,
+          name: user.name,
+          id: user.id
+        } as Omit<User, 'password'>
+      }).toJson();
     } else {
       throw new HttpException(ErrorMessages.user.GET_PROFILE_FAILD, HttpStatus.FORBIDDEN);
     }
   }
   async uploadAvatar(img: BufferedFile, userId: string) {
-    const uploadObjInfo =  await this.storage.uploadAvatar(img);
-    this.repository.user.update({
-      where: {
-        id: userId
-      },
-      data: {
-        avatar: uploadObjInfo.fileName
-      }
-    })
+    const uploadObjInfo = await this.storage.uploadAvatar(img);
+    try {
+      await this.repository.user.update({
+        where: {
+          id: userId
+        },
+        data: {
+          avatar: uploadObjInfo.fileName
+        }
+      });
+      return new Successful({ data: uploadObjInfo.fileName }).toJson();
+    } catch (error) {
+      throw new HttpException(error?.message || 'Unable to save avatar', HttpStatus.BAD_REQUEST);
+    }
   }
 }
