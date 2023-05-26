@@ -6,7 +6,7 @@ export const toggleLoading = (loadingType: AppLoadings) => ({
   type: ACTION_TYPES.TOGGLE_LOADING,
   payload: loadingType
 });
-export const updateProfile = (user: IUser | null) => ({
+export const updateProfile = (user: IUser | Partial<IUser> | null) => ({
   type: ACTION_TYPES.UPDATE_PROFILE,
   payload: user,
 });

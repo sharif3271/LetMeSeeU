@@ -5,6 +5,7 @@ import AvatarPlaceHolder from 'src/assets/images/avatar.png';
 import { HiOutlineUpload } from 'react-icons/hi';
 import { MainFacade } from 'src/store/stores/main';
 
+const STORAGE_URL = process.env.STORAGE_URL;
 
 export function UsersList() {
   const { profile } = useSelector(selectProfile);
@@ -14,7 +15,7 @@ export function UsersList() {
       <div className='avatar-container'>
         {
           profile?.avatar
-            ? <img src={profile?.avatar}  alt='avatar'/>
+            ? <img src={`${STORAGE_URL}/${profile?.avatar}`}  alt='avatar'/>
             : (
               <div>
                 <img src={AvatarPlaceHolder}  alt='avatar'/>
@@ -25,7 +26,7 @@ export function UsersList() {
                   accept='image/*'
                   onChange={(e) => {
                     if (e?.target?.files?.length) {
-                      // onSuccess(e?.target?.files[0]);
+                      facade.setProfileAvatar(e.target.files[0]);
                     }
                   }}
                   id='upload-file'

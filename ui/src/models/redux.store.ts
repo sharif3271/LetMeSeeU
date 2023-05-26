@@ -2,7 +2,8 @@ import { IUser } from './side-effects';
 
 export enum AppLoadings {
   profileLoading = 'profileLoading',
-  connectionLoading = 'connectionLoading'
+  connectionLoading = 'connectionLoading',
+  avatarUploading = 'avatarUploading'
 }
 export type TAppLoadings = { [key in AppLoadings]?: boolean; };
 

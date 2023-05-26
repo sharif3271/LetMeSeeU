@@ -29,5 +29,14 @@ export class MainFacade {
       })
       .finally(() => this.toggleLoading(AppLoadings.profileLoading));
   }
-  setProfileAvatar(file: File) {}
+  setProfileAvatar(file: File) {
+    this.toggleLoading(AppLoadings.avatarUploading);
+    this.service.setAvatar(file)
+      .then(({data}) => {
+        if (data.success) {
+          this.dispatch(actions.updateProfile({avatar: data.data}));
+        }
+      })
+      .finally(() => this.toggleLoading(AppLoadings.avatarUploading));
+  }
 }

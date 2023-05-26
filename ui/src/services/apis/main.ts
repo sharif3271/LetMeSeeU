@@ -23,4 +23,9 @@ export class MainServices {
   async profile() {
     return this.http.get<IResponse<IUser>>(MAIN_URLS.profile);
   }
+  async setAvatar(image: File) {
+    const form = new FormData();
+    form.append('image', image);
+    return this.http.post<IResponse<string>>(MAIN_URLS.setAvatar, form);
+  }
 }
