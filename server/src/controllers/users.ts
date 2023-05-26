@@ -1,6 +1,8 @@
-import { Controller, Body, Request, Post, Get, UseGuards } from '@nestjs/common';
+import { Controller, Body, Request, Post, Get, UseGuards, UseInterceptors, UploadedFile } from '@nestjs/common';
+import { FileInterceptor } from '@nestjs/platform-express';
 import { ILoginBody, IProtectedReq, IRegisterBody } from 'src/interfaces';
 import { AuthGuard } from 'src/modules/auth';
+import { BufferedFile } from 'src/modules/minio-client';
 import { UsersService } from 'src/services';
 
 @Controller('user')
@@ -20,5 +22,15 @@ export class UserController {
   @Get('profile')
   async getMyInfo(@Request() req: IProtectedReq) {
     return this.userService.profile(req.user.id);
+  }
+
+  @UseGuards(AuthGuard)
+  @Post('avatar-upload')
+  @UseInterceptors(FileInterceptor('image'))
+  async uploadAvatar(
+    @Request() req: IProtectedReq,
+    @UploadedFile() image: BufferedFile
+  ) {
+    return this.userService.uploadAvatar(image, req.user.id);
   }
 }

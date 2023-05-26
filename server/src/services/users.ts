@@ -4,10 +4,15 @@ import { UserRepository } from "src/repository";
 import { JwtService } from '@nestjs/jwt';
 import { ErrorMessages, PassUtils, Successful } from "src/utils";
 import { User } from "@prisma/client";
+import { BufferedFile, MinioClientService } from "src/modules/minio-client";
 
 @Injectable()
 export class UsersService {
-  constructor(private repository: UserRepository, private jwtService: JwtService) { }
+  constructor(
+    private repository: UserRepository,
+    private jwtService: JwtService,
+    private storage: MinioClientService
+  ) { }
 
   private generateToken(user: IAuthUser) {
     return this.jwtService.sign(user);
@@ -53,9 +58,20 @@ export class UsersService {
         avatar: user.avatar,
         name: user.name,
         id: user.id
-      } as Partial<User>});
+      } as Omit<User, 'password'>});
     } else {
       throw new HttpException(ErrorMessages.user.GET_PROFILE_FAILD, HttpStatus.FORBIDDEN);
     }
+  }
+  async uploadAvatar(img: BufferedFile, userId: string) {
+    const uploadObjInfo =  await this.storage.uploadAvatar(img);
+    this.repository.user.update({
+      where: {
+        id: userId
+      },
+      data: {
+        avatar: uploadObjInfo.fileName
+      }
+    })
   }
 }
