@@ -38,7 +38,10 @@ export class MinioClientService {
     const extension = file.originalname.substring(file.originalname.lastIndexOf('.'), file.originalname.length);
     const fileName = hashedFileName + extension;
     try {
-      return await this.client.putObject(bucketName, fileName, file.buffer);
+      return {
+        fileName,
+        objectInfo: await this.client.putObject(bucketName, fileName, file.buffer)
+      };
     } catch(err) {
       throw new HttpException(
         err?.message || 'Error uploading file',
