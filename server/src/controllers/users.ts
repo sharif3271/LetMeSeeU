@@ -1,4 +1,4 @@
-import { Controller, Body, Request, Post, Get, UseGuards, UseInterceptors, UploadedFile } from '@nestjs/common';
+import { Controller, Body, Request, Post, Get, UseGuards, UseInterceptors, UploadedFile, Query } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { ILoginBody, IProtectedReq, IRegisterBody } from 'src/interfaces';
 import { AuthGuard } from 'src/modules/auth';
@@ -16,6 +16,12 @@ export class UserController {
   @Post('register')
   async userRegister(@Body() body: IRegisterBody) {
     return this.userService.register(body);
+  }
+
+  @UseGuards(AuthGuard)
+  @Get('list?')
+  async usersList(@Request() req: IProtectedReq, @Query('query') query: string) {
+    return this.userService.searchInUsers(query, req.user.id);
   }
   
   @UseGuards(AuthGuard)
