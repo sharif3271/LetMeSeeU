@@ -1,11 +1,19 @@
 import { Injectable } from '@nestjs/common';
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient, Prisma } from '@prisma/client';
 
 @Injectable()
 export class UserRepository {
   private readonly _client: PrismaClient;
   constructor() {
-    this._client = new PrismaClient();
+    const options: Prisma.PrismaClientOptions = process.env.RUNNING_MODE === 'development' ? {
+      log: [{
+        emit: 'stdout',
+        level: 'query',
+      }]
+    } : {};
+    console.log(options);
+    
+    this._client = new PrismaClient(options);
   }
   get prismaClient() {
     return this._client;

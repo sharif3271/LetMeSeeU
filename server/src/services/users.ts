@@ -81,4 +81,42 @@ export class UsersService {
       throw new HttpException(error?.message || 'Unable to save avatar', HttpStatus.BAD_REQUEST);
     }
   }
+  async searchInUsers(query: string, userId: string) {
+    if (query?.length > 1) {
+      const users = await this.repository.user.findMany({
+        where: {
+          name: {
+            startsWith: query
+          },
+          AND: {
+            id: {
+              not: userId
+            },
+            followers: {
+              none: {
+                requestedById: {
+                  equals: userId
+                }
+              }
+            },
+            followings: {
+              none: {
+                requestedToId: {
+                  equals: userId
+                }
+              }
+            }
+          }
+        },
+        select: {
+          id: true,
+          name: true,
+          avatar: true,
+        }
+      });
+      return new Successful({ data: users as User[]});
+    } else {
+      return new Successful({ data: [] as User[]});
+    }
+  }
 }
