@@ -66,9 +66,17 @@
 .avatar-container h2 {
   @apply font-semibold text-lg mt-3;
 }
+.avatar-container h4 {
+  @apply font-semibold text-sm mt-2 cursor-pointer text-blue-700 underline;
+}
 .avatar-container > div {
   @apply relative w-14 h-14;
 }
 .avatar-container > div > label {
   @apply absolute inset-0 bg-[#00000053] flex justify-center items-center rounded-full cursor-pointer;
+}
+
+/* add contact modal */
+.add-contact-container {
+  @apply w-screen min-h-[40vh] md:w-[90%] lg:w-[70%] bg-white;
 }
