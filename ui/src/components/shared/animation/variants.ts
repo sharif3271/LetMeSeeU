@@ -26,6 +26,32 @@ export const RoutingAnimation: Record<string, Variant> = {
     }
   }
 };
+export const FadeInOutVertically: Record<string, Variant> = {
+  initial: {
+    y: '100vh',
+    opacity: 0.2,
+    transition: {
+      when: 'beforeChildren',
+      staggerChildren: 0.4
+    }
+  },
+  final: {
+    y: '0vh',
+    opacity: 1,
+    transition: {
+      ease: 'easeIn',
+      duration: 0.4
+    }
+  },
+  exit: {
+    y: '100vh',
+    opacity: 0,
+    transition: {
+      ease: 'easeOut',
+      duration: 0.3
+    }
+  }
+};
 
 export const GText: Record<string, Variant> = {
   initial: {opacity: 0, y: '20vh'},
