@@ -4,11 +4,14 @@ import { selectProfile } from 'src/store/stores/main/selector';
 import AvatarPlaceHolder from 'src/assets/images/avatar.png';
 import { HiOutlineUpload } from 'react-icons/hi';
 import { MainFacade } from 'src/store/stores/main';
+import { useAsModal } from '../shared';
+import { AddContact } from './add-contacts';
 
 const STORAGE_URL = process.env.STORAGE_URL;
 
 export function UsersList() {
   const { profile } = useSelector(selectProfile);
+  const {Modal, show} = useAsModal({component: AddContact});
   const facade = useMemo(() => new MainFacade(), []);
   return (
     <div className='w-full h-full'>
@@ -35,6 +38,8 @@ export function UsersList() {
             )
         }
         <h2>{profile?.name}</h2>
+        <h4 onClick={show}>Find Others</h4>
+        <Modal />
       </div>
     </div>
   );
