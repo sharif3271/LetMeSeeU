@@ -30,22 +30,18 @@ export const FadeInOutVertically: Record<string, Variant> = {
   initial: {
     y: '100vh',
     opacity: 0.2,
-    transition: {
-      when: 'beforeChildren',
-      staggerChildren: 0.4
-    }
   },
   final: {
     y: '0vh',
     opacity: 1,
     transition: {
       ease: 'easeIn',
-      duration: 0.4
+      duration: 0.3
     }
   },
   exit: {
     y: '100vh',
-    opacity: 0,
+    opacity: 0.2,
     transition: {
       ease: 'easeOut',
       duration: 0.3
