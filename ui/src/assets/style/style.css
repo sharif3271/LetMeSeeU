@@ -60,5 +60,5 @@ input:-webkit-autofill {
   mx-auto bg-gradient-radial from-slate-100 to-slate-400;
 }
 .modal-back-drop {
-  @apply flex fixed inset-0 min-h-screen z-50 justify-center items-end md:items-center
+  @apply fixed inset-0
 }
