@@ -3,6 +3,8 @@ generator client {
 }
 
 datasource db {
+  // this is a sample use of sqlite.
+  // you can change target database for more complex data structures.
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
