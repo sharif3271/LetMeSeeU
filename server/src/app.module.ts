@@ -14,3 +14,9 @@ import * as services from './services';
   providers: [...Object.values(repositories), ...Object.values(services)],
 })
 export class AppModule {}
+
+/**
+ * the main point of this structure is simplicity to scale team.
+ * every team can start to developing features. the common files that changed between 
+ * teams will be the index files that super easy to handle conflicts while merging.
+ */
