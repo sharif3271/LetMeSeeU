@@ -23,21 +23,25 @@ export function useAsModal<T = unknown>({
   const target = useMemo(() => document.getElementById('modal-root') as HTMLElement, []);
 
   const [exit, setExit] = useState(false);
-  const [scope, animate] = useAnimate();
-  const [_show, _setShow] = useState(false);
-  const show = useCallback(() => _setShow(true), [_setShow]);
+  const [container, animate] = useAnimate();
+  const [show, setShow] = useState(false);
+  const showModal = useCallback(() => setShow(true), [setShow]);
   const close = useCallback(() => setExit(true), [setExit]);
 
   useEffect(() => {
     if (exit) {
       const exitAnimation = async () => {
-        await animate(scope.current, { opacity: 0.2, y: '100vh' }, { duration: 0.3, ease: 'easeOut' });
-        _setShow(false);
+        await animate(
+          container.current,
+          { opacity: 0.2, y: '100vh' },
+          { duration: 0.3, ease: 'easeOut' }
+        );
+        setShow(false);
         setExit(false);
       };
       exitAnimation();
     }
-  }, [exit, _setShow, setExit]);
+  }, [exit]);
 
   const closeWithCallback = useCallback((data: unknown) => {
     close();
@@ -45,7 +49,7 @@ export function useAsModal<T = unknown>({
   }, []);
 
   const Modal = useMemo(() => () => ReactDOM.createPortal((
-    _show ? (
+    show ? (
       <>
         <div className={`modal-back-drop ${hasBackDrop && 'bg-[#0000007c]'}`}></div>
         <motion.div
@@ -53,14 +57,14 @@ export function useAsModal<T = unknown>({
           initial={'initial'}
           animate={'final'}
           onClick={close}
-          ref={scope}
+          ref={container}
           className='absolute inset-0 max-w-app mx-auto flex min-h-screen z-50 justify-center items-end md:items-center bg-transparent'
         >
           <RenderComponent close={closeWithCallback} />
         </motion.div>
       </>
     ) : null
-  ), target), [target, _show]);
+  ), target), [target, show]);
 
-  return { show, close, Modal };
+  return { show: showModal, close, Modal };
 }
