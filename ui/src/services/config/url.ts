@@ -3,4 +3,5 @@ export const MAIN_URLS = {
   register: '/user/register',
   profile: '/user/profile',
   setAvatar: '/user/avatar-upload',
+  allUsers: '/user/list',
 };
