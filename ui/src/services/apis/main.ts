@@ -5,6 +5,8 @@ import { MAIN_URLS } from 'src/services/config/url';
 export class MainServices {
 
   private http: HttpClient;
+  private getAllAbort: AbortController | undefined;
+
   public constructor() {
     this.http = new HttpClient();
   }
@@ -27,5 +29,15 @@ export class MainServices {
     const form = new FormData();
     form.append('image', image);
     return this.http.post<IResponse<string>>(MAIN_URLS.setAvatar, form);
+  }
+  async getAll(query: string) {
+    if (this.getAllAbort) {
+      this.getAllAbort.abort();
+      this.getAllAbort = undefined;
+    }
+    this.getAllAbort = new AbortController();
+    return this.http.get<IResponse<IUser[]>>(`${MAIN_URLS.allUsers}?query=${query}`, {
+      signal: this.getAllAbort?.signal
+    });
   }
 }
