@@ -4,8 +4,8 @@ import { selectProfile } from 'src/store/stores/main/selector';
 import AvatarPlaceHolder from 'src/assets/images/avatar.png';
 import { HiOutlineUpload } from 'react-icons/hi';
 import { MainFacade } from 'src/store/stores/main';
-import { useAsModal } from '../shared';
-import { AddContact } from './add-contacts';
+import { useAsModal } from 'src/components';
+import { AddContact } from './add-contacts/add-contacts';
 
 const STORAGE_URL = process.env.STORAGE_URL;
 
